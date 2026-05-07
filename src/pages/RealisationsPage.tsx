@@ -1,6 +1,6 @@
-import React, { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { HiSearch, HiRefresh } from 'react-icons/hi'
+import {HiRefresh } from 'react-icons/hi'
 import { rPage as s } from '../styles/realisationsPage.styles'
 import gsap from 'gsap'
 

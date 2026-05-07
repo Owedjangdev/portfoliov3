@@ -5,7 +5,7 @@ import { supabase } from '../lib/supabaseClient'
 import { tPage as s } from '../styles/testimonialsPage.styles'
 import { testimonialStyles as cardStyles } from '../styles/testimonials.styles'
 import ReviewForm from '../components/ReviewForm' // On utilise ton composant existant
-import gsap from 'gsap'
+
 
 const TestimonialsPage: React.FC = () => {
   const { t } = useTranslation()
