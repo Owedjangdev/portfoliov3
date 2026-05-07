@@ -1,0 +1,299 @@
+{
+  "nav": {
+    "about": "Accueil",
+    "services": "Services",
+    "works": "Projets",
+    "reviews": "Témoignages",
+    "contact": "Contact",
+    "cta": "Discutons"
+  },
+  "hero": {
+    "available": "Disponible pour de nouveaux projets",
+    "greeting": "Bonjour, je suis",
+    "title_start": "J'aide les startups à",
+    "accent1": "accélérer",
+    "title_mid": "leur",
+    "accent2": "croissance",
+    "title_end": "avec des plateformes",
+    "accent3": "sur-mesure.",
+    "description": "Je conçois et développe des plateformes web performantes, des SaaS B2B et des stratégies SEO qui génèrent de la croissance réelle.",
+    "cta_primary": "Voir mes projets",
+    "cta_secondary": "Me contacter",
+    "cards": {
+      "seo": "Expert SEO",
+      "wordpress": "Dev WordPress",
+      "web": "Développeur Web",
+      "mobile": "Dev Mobile"
+    }
+  },
+  "about": {
+    "label": "À propos",
+    "title": "Passionné par le code et la croissance",
+    "bio": "Je suis owedev, développeur Full Stack basé au Bénin. Je conçois des plateformes web performantes, des SaaS B2B sur-mesure et des stratégies SEO qui génèrent une croissance réelle pour les startups et entreprises ambitieuses.",
+    "experience": "Expériences",
+    "education": "Formations",
+    "stats": {
+      "experience": "Ans d'expérience",
+      "projects": "Projets réalisés",
+      "clients": "Clients satisfaits"
+    },
+    "exp_items": [
+      {
+        "period": "Oct 2024 — En cours",
+        "role": "Développeur Frontend",
+        "company": "CDE-PARAKOU (Université de Parakou)",
+        "type": "Présentiel",
+        "desc": "Plateforme de suivi entrepreneurial pour 500+ étudiants. Architecture React.js/Node.js, API REST sécurisées et gestion de projet Agile."
+      },
+      {
+        "period": "Octobre 2025",
+        "role": "Développeur Full Stack / WordPress",
+        "company": "PhoneFixGuide",
+        "type": "Remote / Freelance",
+        "desc": "Plateforme de mise en relation. Intégration de webservices, optimisation SEO et performance (score 90+). Conception et mise en production autonome."
+      },
+      {
+        "period": "Projet Académique",
+        "role": "Développeur Fullstack HealthTech",
+        "company": "Medicals (Projet Personnel)",
+        "type": "Remote",
+        "desc": "Application de gestion patient : Next.js, Auth sécurisée, API REST. Déploiement Vercel avec pipeline CI/CD et respect des normes UX santé."
+      },
+      {
+        "period": "Mars 2026 — En cours",
+        "role": "Développeur Web WordPress & Divi",
+        "company": "Collaboration Freelance",
+        "type": "Remote",
+        "desc": "Partenariat long terme sur la conception de sites sur mesure. Expertise avancée sur le builder Divi, personnalisation CSS/Child Themes et optimisation de l'expérience utilisateur."
+      }
+    ],
+    "edu_items": [
+      {
+        "period": "2022 — 2025",
+        "degree": "Licence en Informatique de Gestion",
+        "school": "Université de Parakou (IUT)",
+        "desc": "Spécialisation en développement d'applications et systèmes d'information."
+      },
+      {
+        "period": "2023",
+        "degree": "Baccalauréat Série D",
+        "school": "CEG1 OUESSE WOGOUDOU",
+        "desc": ""
+      }
+    ]
+  },
+  "services": {
+    "label": "Services",
+    "title": "Ce que je fais pour vous",
+    "subtitle": "Des solutions pensées pour la performance et la croissance",
+    "items": [
+      { "id": "seo", "title": "SEO & Référencement", "desc": "Audit technique, stratégie de contenu, optimisation on-page et off-page pour dominer les résultats de recherche." },
+      { "id": "wordpress", "title": "WordPress", "desc": "Thèmes custom, plugins sur-mesure, WooCommerce, performances et sécurité optimisées." },
+      { "id": "webdev", "title": "Développement Web", "desc": "Plateformes React, SaaS B2B, APIs REST, architectures modernes scalables et performantes." },
+      { "id": "mobile", "title": "Développement Mobile", "desc": "Applications React Native cross-platform iOS & Android, UX fluide et expérience native." }
+    ]
+  },
+  "services_page": {
+    "label": "Domaines d'expertise",
+    "title": "Ce que je",
+    "title_accent": "fais",
+    "items": [
+      {
+        "id": "01",
+        "title": "Développement Web",
+        "desc": "Applications web complètes, du backend robuste en Laravel ou FastAPI au frontend moderne avec React ou Angular.",
+        "tags": ["Laravel", "React", "FastAPI", "Angular"]
+      },
+      {
+        "id": "02",
+        "title": "Développement Mobile",
+        "desc": "Applications natives et cross-platform iOS & Android. Flutter pour la productivité, Kotlin pour la performance native Android.",
+        "tags": ["Flutter", "Kotlin", "iOS", "Android"]
+      },
+      {
+        "id": "03",
+        "title": "DevOps & Infrastructure",
+        "desc": "Déploiement VPS, mise en place de pipelines CI/CD, conteneurisation Docker, configuration Nginx et maintenance continue en production.",
+        "tags": ["Docker", "CI/CD", "VPS", "Nginx"]
+      },
+      {
+        "id": "04",
+        "title": "SEO & Performance",
+        "desc": "Optimisation technique, stratégie de contenu et netlinking pour propulser votre site en première page des moteurs de recherche.",
+        "tags": ["Audit SEO", "Google Analytics", "Performance", "Sitemap"]
+      }
+    ]
+  },
+  "works": {
+    "label": "Réalisations",
+    "title": "Projets",
+    "title_accent": "récents",
+    "view_more": "Voir plus de projets",
+    "items": [
+      {
+    "title": "Medicals — Gestion de Santé",
+    "category": "saas",
+    "desc": "Solution HealthTech complète pour la gestion des dossiers patients, le suivi des consultations et l'optimisation des flux médicaux.",
+    "url": "medicals-nine.vercel.app",
+    "image": "medicals"
+      },
+     
+     {
+  "id": 2,
+  "title": "CoinPlace — Crypto & FinTech",
+  "category": "web",
+  "desc": "Plateforme de suivi d'actifs numériques en temps réel. Intégration d'APIs financières pour le monitoring des cours et la gestion de portefeuilles crypto.",
+  "url": "coinplace-mauve.vercel.app",
+  "image": "coinplace"
+},
+    {
+  "id": 3,
+  "title": "Flora Parfums — E-commerce Luxe",
+  "category": "web wordpress",
+  "desc": "Boutique en ligne haut de gamme pour une marque de parfumerie fine. Design épuré, catalogue de produits dynamique et parcours utilisateur optimisé pour le luxe.",
+  "url": "flora-parfums.com",
+  "image": "flora"
+} 
+    ]
+  
+},
+  "works_page": {
+    "title": "Mes",
+    "title_accent": "réalisations",
+    "subtitle": "Applications web, mobiles, APIs et solutions d'automatisation — chaque projet est une histoire de problème résolu.",
+    "stats": {
+      "delivered": "Projets livrés",
+      "featured": "Projets Featured",
+      "technos": "Technologies"
+    },
+    "filters": {
+      "all": "Tous",
+      "web": "Web Application",
+      "mobile": "Mobile App",
+      "api": "API & Backend",
+      "seo": "SEO",
+      "saas": "SaaS"
+    },
+    "search_placeholder": "Rechercher un projet...",
+    "search_btn": "Rechercher",
+    "reset_btn": "Réinitialiser",
+    "no_results": "Aucun projet ne correspond à votre recherche."
+  },
+  "contact": {
+    "label": "Contact",
+    "intro_label": "Prêt à démarrer ?",
+    "intro_title": "Vous avez une idée en ",
+    "intro_accent": "tête ?",
+    "intro_desc": "Que ce soit pour un projet ambitieux, une question technique , je suis à votre écoute.",
+    "title": "Envoyez-moi un ",
+    "subtitle": "message",
+    "desc": "Je vous répondrai dans les 24 heures.",
+    "name": "Nom Complet",
+    "email": "Email",
+    "phone": "Téléphone",
+    "project_type": "Type de Projet",
+    "budget": "Budget Estimé",
+    "message": "Votre Message",
+    "send": "Envoyer le message",
+    "availability": "Disponible pour des missions freelance",
+    "placeholders": {
+      "name": "Ex: Jean Dupont",
+      "email": "jean@exemple.com",
+      "phone": "+229 XX XX XX XX",
+      "project": "Sélectionnez une option",
+      "budget": "Sélectionnez une fourchette",
+      "message": "Décrivez votre projet, vos objectifs, vos questions..."
+    },
+    "options": {
+      "web": "Développement Web",
+      "mobile": "Application Mobile",
+      "saas": "SaaS / B2B",
+      "seo": "SEO & Performance",
+      "budget1": "Moins de 500k CFA",
+      "budget2": "500k - 1M CFA",
+      "budget3": "Plus de 1M CFA"
+    }
+  },
+  "skills": {
+    "label": "Stack Technique",
+    "title": "Technologies",
+    "title_accent": "maîtrisées",
+    "items": [
+      { "name": "HTML5" },
+      { "name": "CSS3" },
+      { "name": "JavaScript" },
+      { "name": "React" },
+      { "name": "Next.js" },
+      { "name": "Tailwind" },
+      { "name": "Node.js" },
+      { "name": "Express" },
+      { "name": "Figma" }
+    ]
+  },
+  "testimonials": {
+    "label": "Témoignages",
+    "title": "Ce que disent mes",
+    "title_accent": "clients",
+    "cta": "Laisser un avis",
+    "form": {
+      "title": "Partagez votre expérience",
+      "name": "Votre Nom",
+      "email": "Votre Email",
+      "company": "Entreprise",
+      "role": "Votre Fonction",
+      "project": "Projet Concerné",
+      "rating": "Votre Note",
+      "content": "Votre Avis",
+      "placeholder_name": "Ex: Jean Dupont",
+      "placeholder_email": "jean@exemple.com",
+      "placeholder_company": "Nom de l'entreprise",
+      "placeholder_role": "Ex: CEO, CTO, Product Manager",
+      "placeholder_project": "Nom du projet sur lequel on a collaboré",
+      "placeholder_content": "Partagez votre expérience... (min. 20 caractères)",
+      "submit": "Envoyer mon avis",
+      "helper_email": "Ne sera pas publié",
+      "helper_disclaimer": "Votre avis sera validé avant publication."
+    }
+  },
+  "testimonials_page": {
+    "title": "Avis &",
+    "title_accent": "Témoignages",
+    "subtitle": "Ce que mes clients, collaborateurs et partenaires disent de notre travail ensemble.",
+    "stats": {
+      "verified": "Avis vérifiés",
+      "average": "Note moyenne"
+    },
+    "list_title": "Ce qu'ils",
+    "list_title_accent": "disent",
+    "form_title": "Partagez",
+    "form_title_accent": "votre expérience"
+  },
+  "faq": {
+    "label": "FAQ",
+    "title": "Questions",
+    "title_accent": "Fréquentes",
+    "items": [
+      { "q": "Quels types de projets réalisez-vous ?", "a": "Je développe des applications web sur mesure (React, Next.js, Laravel), des applications mobiles (Flutter, React Native), des sites e-commerce et des solutions SaaS B2B." },
+      { "q": "Quelle est votre stack technique préférée ?", "a": "Je suis spécialisé dans l'écosystème JavaScript (React, Node.js, TypeScript) et PHP (Laravel). Pour le mobile, j'utilise principalement Flutter ou React Native." },
+      { "q": "Combien de temps prend la création d'un site web ?", "a": "Cela dépend de la complexité. Un site vitrine peut prendre 1 à 2 semaines, tandis qu'une plateforme métier complexe peut nécessiter 1 à 3 mois." },
+      { "q": "Proposez-vous une maintenance après la livraison ?", "a": "Oui, absolument. J'accompagne mes clients avec des forfaits de maintenance pour assurer la sécurité et les mises à jour techniques." },
+      { "q": "Travaillez-vous à distance ?", "a": "Oui, je travaille principalement en télétravail avec des clients basés partout dans le monde." }
+    ]
+  },
+  "footer": {
+    "description": "Développeur Full Stack passionné par la création de plateformes web performantes et l'innovation technologique.",
+    "columns": {
+      "stack": "Stack & Compétences",
+      "nav": "Navigation",
+      "social": "Restons Connectés"
+    },
+    "contact": {
+      "phone": "+229 01 00 00 00 00",
+      "email": "contact@owedev.me",
+      "location": "Cotonou, Bénin"
+    },
+    "social_text": "Suivez mon parcours — projets, expériences et coulisses.",
+    "rights": "Tous droits réservés.",
+    "made_by": "Fait par Owedev"
+  }
+}
