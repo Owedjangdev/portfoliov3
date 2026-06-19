@@ -13,6 +13,7 @@ import talentoImg from '../assets/images/prozect6.png'
 import { Link } from 'react-router-dom'
 import { prefersReducedMotion } from '../lib/motion'
 import { fetchPublicProjects, type PublicProject } from '../lib/projects'
+import { ProjectCardSkeleton } from '../components/Skeletons'
 
 // 2. Création d'une map pour lier le nom dans le JSON à l'importation réelle
 const imageMap: Record<string, string> = {
@@ -34,12 +35,15 @@ const Realisations = () => {
   const trackRef = useRef<HTMLDivElement>(null)
   const animationRef = useRef<gsap.core.Tween | null>(null)
   const [projects, setProjects] = useState<PublicProject[]>([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     let mounted = true
+    setLoading(true)
     fetchPublicProjects(i18n.language)
       .then((data) => { if (mounted) setProjects(data) })
       .catch((error) => console.error('Erreur chargement projets:', error))
+      .finally(() => { if (mounted) setLoading(false) })
     return () => { mounted = false }
   }, [i18n.language])
 
@@ -71,12 +75,32 @@ const Realisations = () => {
   const handleMouseEnter = () => animationRef.current?.pause()
   const handleMouseLeave = () => animationRef.current?.play()
 
+  // Pendant le chargement (ex: réveil du backend) → skeletons
+  if (loading) {
+    return (
+      <section id="works" className={s.section}>
+        <div className={s.container}>
+          <div className={s.header}>
+            <span className={s.label}>{t('works.label')}</span>
+            <h2 className={s.title}>
+              {t('works.title')}
+              <span className={s.titleAccent}>{t('works.title_accent')}</span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {[...Array(3)].map((_, i) => <ProjectCardSkeleton key={i} />)}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
   if (projects.length === 0) return null
 
   return (
     <section id="works" className={s.section}>
       <div className={s.container}>
-        
+
         <div className={s.header}>
           <span className={s.label}>{t('works.label')}</span>
           <h2 className={s.title}>

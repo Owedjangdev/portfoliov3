@@ -11,6 +11,7 @@ import constructeursImg from '../assets/images/prozect5.png'
 import talentoImg from '../assets/images/prozect6.png'
 import { prefersReducedMotion } from '../lib/motion'
 import { fetchPublicProjects, type PublicProject } from '../lib/projects'
+import { ProjectCardSkeleton } from '../components/Skeletons'
 
 const imageMap: Record<string, string> = {
   medicals: studenaImg,
@@ -30,12 +31,15 @@ const RealisationsPage = () => {
   const [filter, setFilter] = useState('all')
   const [search, setSearch] = useState('')
   const [allProjects, setAllProjects] = useState<PublicProject[]>([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     let mounted = true
+    setLoading(true)
     fetchPublicProjects(i18n.language)
       .then((data) => { if (mounted) setAllProjects(data) })
       .catch((error) => console.error('Erreur chargement projets:', error))
+      .finally(() => { if (mounted) setLoading(false) })
     return () => { mounted = false }
   }, [i18n.language])
 
@@ -123,7 +127,8 @@ const RealisationsPage = () => {
 
         {/* Grille de projets */}
         <div className={s.grid}>
-          {filteredProjects.map((p, i) => (
+          {loading && [...Array(6)].map((_, i) => <ProjectCardSkeleton key={i} />)}
+          {!loading && filteredProjects.map((p, i) => (
             <a
               key={`${p.title}-${i}`}
               href={toHref(p.url)}
@@ -153,7 +158,7 @@ const RealisationsPage = () => {
           ))}
         </div>
 
-        {filteredProjects.length === 0 && (
+        {!loading && filteredProjects.length === 0 && (
           <div className={s.emptyState}>
             {t('works_page.no_results')}
           </div>

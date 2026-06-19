@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom' // Pour la redirection
 import { api } from '../lib/api'
+import { TestimonialCardSkeleton } from '../components/Skeletons'
 import { HiStar, HiPlus } from 'react-icons/hi'
 import { testimonialStyles as s } from '../styles/testimonials.styles'
 
@@ -60,7 +61,9 @@ const Testimonials = () => {
 
         {/* Grille limitée aux plus récents */}
         <div className={s.grid}>
-          {reviews.length > 0 ? (
+          {loading ? (
+            [...Array(3)].map((_, i) => <TestimonialCardSkeleton key={i} />)
+          ) : reviews.length > 0 ? (
             reviews.map((item) => (
               <div key={item.id} className={s.card}>
                 <div className={s.stars}>
@@ -80,7 +83,7 @@ const Testimonials = () => {
             ))
           ) : (
             <div className={s.emptyState}>
-              {loading ? t('testimonials.loading') : t('testimonials.empty')}
+              {t('testimonials.empty')}
             </div>
           )}
         </div>

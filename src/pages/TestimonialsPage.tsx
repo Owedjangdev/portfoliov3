@@ -4,6 +4,7 @@ import { HiStar } from 'react-icons/hi'
 import { api } from '../lib/api'
 import { tPage as s } from '../styles/testimonialsPage.styles'
 import { testimonialStyles as cardStyles } from '../styles/testimonials.styles'
+import { TestimonialCardSkeleton } from '../components/Skeletons'
 import ReviewForm from '../components/ReviewForm' // On utilise ton composant existant
 
 interface Review {
@@ -19,6 +20,7 @@ const TestimonialsPage: React.FC = () => {
   const { t } = useTranslation()
   const [reviews, setReviews] = useState<Review[]>([])
   const [stats, setStats] = useState({ count: 0, average: 0 })
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,6 +31,8 @@ const TestimonialsPage: React.FC = () => {
         setStats({ count: data.length, average: Number(avg.toFixed(1)) || 0 })
       } catch (error) {
         console.error('Erreur chargement témoignages:', error)
+      } finally {
+        setLoading(false)
       }
     }
 
@@ -79,7 +83,8 @@ const TestimonialsPage: React.FC = () => {
         </div>
 
         <div className={s.grid}>
-          {reviews.map((item) => (
+          {loading && [...Array(6)].map((_, i) => <TestimonialCardSkeleton key={i} />)}
+          {!loading && reviews.map((item) => (
             <div key={item.id} className={cardStyles.card}>
               <div className={cardStyles.stars}>
                 {[...Array(item.rating)].map((_, i) => <HiStar key={i} />)}
@@ -96,7 +101,7 @@ const TestimonialsPage: React.FC = () => {
           ))}
         </div>
 
-        {reviews.length === 0 && (
+        {!loading && reviews.length === 0 && (
           <div className={cardStyles.emptyState}>
             {t('testimonials.empty')}
           </div>
