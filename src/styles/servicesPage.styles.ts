@@ -3,7 +3,7 @@ export const sPage = {
   container: 'max-w-6xl mx-auto px-6',
   header: 'mb-16 max-w-3xl flex flex-col items-start text-left',
   label: 'inline-flex items-center w-fit mb-5 px-4 py-1.5 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 text-[10px] font-bold uppercase tracking-[0.2em] border border-blue-100 dark:border-blue-500/20',
-  title: 'text-5xl md:text-7xl font-black font-[Clash_Display] text-slate-900 dark:text-white leading-[1.05] tracking-tight',
+  title: 'text-4xl sm:text-5xl md:text-7xl font-black font-[Clash_Display] text-slate-900 dark:text-white leading-[1.05] tracking-tight',
   titleAccent: 'font-[Clash_Display] bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent ml-3',
   subtitle: 'mt-5 text-lg text-slate-500 dark:text-gray-400 font-[Inter] leading-relaxed max-w-2xl',
 

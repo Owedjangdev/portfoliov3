@@ -41,7 +41,7 @@ const Navbar = () => {
   ]
 
   return (
-    <header className={s.header(scrolled)}>
+    <header className={s.header(scrolled || isOpen)}>
       <div className={s.container}>
         <Link to="/" className="flex items-center" onClick={() => setIsOpen(false)} aria-label="OweDev Digitaly - accueil">
           <img src={logo} alt="OweDev Digitaly" className="h-9 w-auto rounded-md md:h-10" />
@@ -115,11 +115,14 @@ const Navbar = () => {
               key={link.to}
               to={link.to}
               onClick={() => setIsOpen(false)}
-              className={({ isActive }) => `${s.mobileLink} ${isActive ? 'text-blue-500' : ''}`}
+              className={({ isActive }) => s.mobileLink(isActive)}
             >
               {link.label}
             </NavLink>
           ))}
+          <Link to="/contact" onClick={() => setIsOpen(false)} className={s.mobileCta}>
+            {t('nav.cta')}
+          </Link>
         </div>
       )}
     </header>

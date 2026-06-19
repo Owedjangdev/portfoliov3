@@ -32,13 +32,20 @@ export const navbarStyles = {
     'p-2 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-blue-500 hover:text-blue-500 transition-all',
 
   mobileButton:
-    'md:hidden p-2 text-gray-600 dark:text-gray-300',
+    'md:hidden flex h-10 w-10 items-center justify-center rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors',
 
   mobileMenu:
-    'md:hidden bg-white dark:bg-[#111118] border-t border-gray-100 dark:border-gray-800 px-6 py-4 flex flex-col gap-4',
+    'md:hidden border-t border-gray-100 dark:border-white/10 bg-white dark:bg-[#0D0D14] px-4 pt-3 pb-5 flex flex-col gap-1.5 shadow-xl shadow-black/5',
 
-  mobileLink:
-    'text-sm font-medium font-[Inter] text-gray-600 dark:text-gray-300 hover:text-blue-500 transition-colors cursor-pointer',
+  mobileLink: (active: boolean) =>
+    `flex items-center rounded-xl px-4 py-3.5 text-base font-bold font-[Inter] transition-colors cursor-pointer ${
+      active
+        ? 'bg-blue-50 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400'
+        : 'text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5'
+    }`,
+
+  mobileCta:
+    'mt-2 flex items-center justify-center rounded-xl bg-blue-600 hover:bg-blue-700 text-white px-5 py-3.5 text-sm font-bold font-[Inter] transition-colors',
 
   chevron: (open: boolean) =>
     `transition-transform duration-200 ${open ? 'rotate-180' : 'rotate-0'}`,

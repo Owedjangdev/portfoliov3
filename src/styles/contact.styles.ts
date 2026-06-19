@@ -5,7 +5,7 @@ export const contactStyles = {
   // --- NOUVEAU : Header d'intro ---
   introWrapper: 'text-center mb-16 max-w-3xl mx-auto',
   introLabel: 'inline-block px-4 py-1.5 rounded-lg bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 text-[10px] font-bold uppercase tracking-[0.2em] border border-blue-100 dark:border-blue-500/20 mb-4',
-  introTitle: 'text-5xl md:text-7xl font-black text-slate-900 dark:text-white mb-6 leading-tight font-[Clash_Display]',
+  introTitle: 'text-4xl sm:text-5xl md:text-7xl font-black text-slate-900 dark:text-white mb-6 leading-tight font-[Clash_Display]',
   introAccent: 'font-[Clash_Display] bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent ml-2',
   introDesc: 'text-lg text-slate-500 dark:text-gray-400 leading-relaxed font-[Inter]',
 
