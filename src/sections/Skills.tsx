@@ -9,15 +9,18 @@ import {
   SiReact, 
   SiNextdotjs, 
   SiTailwindcss, 
-  SiNodedotjs, 
-  SiExpress, 
-  SiFigma 
+  SiNodedotjs,
+  SiExpress,
+  SiFigma,
+  SiSupabase,
+  SiFirebase
 } from 'react-icons/si'
 // Note : Si SiCss3 ne marche toujours pas, utilise l'import ci-dessous :
 // import { SiCss } from 'react-icons/si'
 
 import owedevImg from '../assets/images/owedev.webp'
 import { skillsStyles as s } from '../styles/skills.styles'
+import { prefersReducedMotion } from '../lib/motion'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -34,7 +37,10 @@ const iconMap: Record<string, ReactNode> = {
   "Tailwind": <SiTailwindcss className="text-[#06B6D4] text-2xl md:text-3xl" />,
   "Node.js": <SiNodedotjs className="text-[#339933] text-2xl md:text-3xl" />,
   "Express": <SiExpress className="text-gray-600 dark:text-gray-400 text-2xl md:text-3xl" />,
-  "Figma": <SiFigma className="text-[#F24E1E] text-2xl md:text-3xl" />
+  "Figma": <SiFigma className="text-[#F24E1E] text-2xl md:text-3xl" />,
+  "React Native": <SiReact className="text-[#61DAFB] text-2xl md:text-3xl" />,
+  "Supabase": <SiSupabase className="text-[#3ECF8E] text-2xl md:text-3xl" />,
+  "Firebase": <SiFirebase className="text-[#FFCA28] text-2xl md:text-3xl" />
 }
 
 const Skills = () => {
@@ -42,6 +48,8 @@ const Skills = () => {
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
+    if (prefersReducedMotion()) return
+
     const ctx = gsap.context(() => {
       gsap.from(".orbit-item", {
         scale: 0,

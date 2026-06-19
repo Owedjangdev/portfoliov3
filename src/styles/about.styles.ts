@@ -13,11 +13,11 @@ export const aboutStyles = {
   imageWrapper:
     'relative w-72 h-80 md:w-80 md:h-96',
   imageBg:
-    'absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 blur-2xl scale-110',
+    'absolute inset-0 rounded-xl bg-gradient-to-br from-blue-500/15 to-emerald-500/10 blur-2xl scale-105',
   image:
-    'relative w-full h-full object-cover object-top rounded-3xl shadow-2xl',
+    'relative w-full h-full object-cover object-top rounded-xl shadow-2xl',
   expBadge:
-    'absolute -bottom-6 -right-6 bg-white dark:bg-[#16161F] border border-gray-100 dark:border-gray-800 rounded-2xl px-4 py-3 shadow-xl flex flex-col items-center',
+    'absolute -bottom-6 -right-6 bg-white dark:bg-[#16161F] border border-gray-100 dark:border-gray-800 rounded-lg px-4 py-3 shadow-xl flex flex-col items-center',
   expBadgeNumber:
     'text-3xl font-black font-[Clash_Display] text-blue-500',
   expBadgeLabel:
@@ -34,7 +34,7 @@ export const aboutStyles = {
   statsWrapper:
     'grid grid-cols-3 gap-4 py-2',
   statCard:
-    'flex flex-col items-center gap-1 p-4 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10',
+    'flex flex-col items-center gap-1 p-4 rounded-lg bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10',
   statNumber:
     'text-2xl font-black font-[Clash_Display] text-gray-900 dark:text-white',
   statLabel:

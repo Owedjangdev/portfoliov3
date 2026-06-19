@@ -1,26 +1,37 @@
 import { useEffect, useState, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom' // Pour la redirection
-import { supabase } from '../lib/supabaseClient'
+import { api } from '../lib/api'
 import { HiStar, HiPlus } from 'react-icons/hi'
 import { testimonialStyles as s } from '../styles/testimonials.styles'
+
+interface Review {
+  id: string | number
+  name?: string
+  role?: string
+  company?: string
+  content?: string
+  rating?: number
+}
 
 const Testimonials = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()
-  const [reviews, setReviews] = useState<any[]>([])
+  const [reviews, setReviews] = useState<Review[]>([])
+  const [loading, setLoading] = useState(true)
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     const fetchRecentReviews = async () => {
-      // On utilise .limit(3) pour n'afficher que les 3 derniers avis sur l'accueil
-      const { data } = await supabase
-        .from('testimonials')
-        .select('*')
-        .order('created_at', { ascending: false })
-        .limit(3) 
-
-      if (data) setReviews(data)
+      try {
+        // ?limit=3 pour n'afficher que les 3 derniers avis sur l'accueil
+        const data = await api<Review[]>('/testimonials?limit=3')
+        setReviews(data)
+      } catch (error) {
+        console.error('Erreur chargement témoignages:', error)
+      } finally {
+        setLoading(false)
+      }
     }
     fetchRecentReviews()
   }, [])
@@ -53,7 +64,7 @@ const Testimonials = () => {
             reviews.map((item) => (
               <div key={item.id} className={s.card}>
                 <div className={s.stars}>
-                  {[...Array(item.rating)].map((_, i) => <HiStar key={i} />)}
+                  {[...Array(item.rating ?? 5)].map((_, i) => <HiStar key={i} />)}
                 </div>
                 <p className={s.content}>"{item.content}"</p>
                 <div className={s.author}>
@@ -68,8 +79,8 @@ const Testimonials = () => {
               </div>
             ))
           ) : (
-            <div className="col-span-full text-center py-10 opacity-50 italic text-gray-500">
-              Chargement des avis récents...
+            <div className={s.emptyState}>
+              {loading ? t('testimonials.loading') : t('testimonials.empty')}
             </div>
           )}
         </div>
@@ -81,7 +92,7 @@ const Testimonials = () => {
               onClick={() => navigate('/temoignages')}
               className="text-sm font-bold text-blue-600 hover:underline underline-offset-4"
             >
-              Voir tous les témoignages →
+              {t('testimonials.view_all')}
             </button>
           </div>
         )}

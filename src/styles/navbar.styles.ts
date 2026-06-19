@@ -16,10 +16,10 @@ export const navbarStyles = {
     'text-sm font-medium font-[Inter] text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors cursor-pointer',
 
   langButton:
-    'flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-blue-500 hover:text-blue-500 transition-all',
+    'flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-blue-500 hover:text-blue-500 transition-all',
 
   langDropdown:
-    'absolute right-0 top-full mt-2 w-36 rounded-xl border border-gray-100 dark:border-gray-700 bg-white dark:bg-[#16161F] shadow-lg overflow-hidden z-50',
+    'absolute right-0 top-full mt-2 w-36 rounded-lg border border-gray-100 dark:border-gray-700 bg-white dark:bg-[#16161F] shadow-lg overflow-hidden z-50',
 
   langItem: (active: boolean) =>
     `w-full flex items-center gap-3 px-4 py-2.5 text-sm font-medium transition-colors ${
@@ -29,7 +29,7 @@ export const navbarStyles = {
     }`,
 
   themeButton:
-    'p-2 rounded-full border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-blue-500 hover:text-blue-500 transition-all',
+    'p-2 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-blue-500 hover:text-blue-500 transition-all',
 
   mobileButton:
     'md:hidden p-2 text-gray-600 dark:text-gray-300',
@@ -44,5 +44,5 @@ export const navbarStyles = {
     `transition-transform duration-200 ${open ? 'rotate-180' : 'rotate-0'}`,
 
   ctaButton:
-    'hidden md:inline-flex items-center px-5 py-2 rounded-full bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold font-[Inter] transition-all duration-300',
+    'hidden md:inline-flex items-center px-5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold font-[Inter] transition-all duration-300',
 }

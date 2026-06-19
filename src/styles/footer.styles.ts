@@ -25,7 +25,7 @@ export const footerStyles = {
   socialText: 'text-sm text-slate-600 dark:text-gray-400 mb-6 leading-relaxed',
   socialGrid: 'flex gap-3',
   // Icônes avec fond gris clair en Light, fond sombre en Dark
-  socialIcon: 'w-10 h-10 rounded-xl bg-slate-200/50 dark:bg-white/5 border border-slate-200 dark:border-white/5 flex items-center justify-center text-slate-600 dark:text-gray-400 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300',
+  socialIcon: 'w-10 h-10 rounded-lg bg-slate-200/50 dark:bg-white/5 border border-slate-200 dark:border-white/5 flex items-center justify-center text-slate-600 dark:text-gray-400 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300',
 
   // Barre de copyright
   bottomBar: 'pt-8 border-t border-slate-200 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-4',

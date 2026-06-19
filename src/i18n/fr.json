@@ -57,7 +57,7 @@
         "role": "Développeur Fullstack HealthTech",
         "company": "Medicals (Projet Personnel)",
         "type": "Remote",
-        "desc": "Application de gestion patient : Next.js, Auth sécurisée, API REST. Déploiement Vercel avec pipeline CI/CD et respect des normes UX santé."
+        "desc": "Application de gestion patient : React, Node.js, Express et authentification Clerk. Déploiement Vercel avec pipeline CI/CD."
       },
       {
         "period": "Mars 2026 — En cours",
@@ -69,7 +69,7 @@
     ],
     "edu_items": [
       {
-        "period": "2022 — 2025",
+        "period": "2023 — 2026",
         "degree": "Licence en Informatique de Gestion",
         "school": "Université de Parakou (IUT)",
         "desc": "Spécialisation en développement d'applications et systèmes d'information."
@@ -87,10 +87,26 @@
     "title": "Ce que je fais pour vous",
     "subtitle": "Des solutions pensées pour la performance et la croissance",
     "items": [
-      { "id": "seo", "title": "SEO & Référencement", "desc": "Audit technique, stratégie de contenu, optimisation on-page et off-page pour dominer les résultats de recherche." },
-      { "id": "wordpress", "title": "WordPress", "desc": "Thèmes custom, plugins sur-mesure, WooCommerce, performances et sécurité optimisées." },
-      { "id": "webdev", "title": "Développement Web", "desc": "Plateformes React, SaaS B2B, APIs REST, architectures modernes scalables et performantes." },
-      { "id": "mobile", "title": "Développement Mobile", "desc": "Applications React Native cross-platform iOS & Android, UX fluide et expérience native." }
+      {
+        "id": "seo",
+        "title": "SEO & Référencement",
+        "desc": "Audit technique, stratégie de contenu, optimisation on-page et off-page pour dominer les résultats de recherche."
+      },
+      {
+        "id": "wordpress",
+        "title": "WordPress",
+        "desc": "Thèmes custom, plugins sur-mesure, WooCommerce, performances et sécurité optimisées."
+      },
+      {
+        "id": "webdev",
+        "title": "Développement Web",
+        "desc": "Plateformes React, SaaS B2B, APIs REST, architectures modernes scalables et performantes."
+      },
+      {
+        "id": "mobile",
+        "title": "Développement Mobile",
+        "desc": "Applications React Native cross-platform iOS & Android, UX fluide et expérience native."
+      }
     ]
   },
   "services_page": {
@@ -101,66 +117,75 @@
       {
         "id": "01",
         "title": "Développement Web",
-        "desc": "Applications web complètes, du backend robuste en Laravel ou FastAPI au frontend moderne avec React ou Angular.",
-        "tags": ["Laravel", "React", "FastAPI", "Angular"]
+        "desc": "Sites vitrines, plateformes SaaS et applications web sur-mesure. Backend robuste avec NestJS ou FastAPI, et interfaces modernes et rapides avec Next.js et React.",
+        "tags": [
+          "Next.js",
+          "React",
+          "NestJS",
+          "FastAPI"
+        ]
       },
       {
         "id": "02",
         "title": "Développement Mobile",
-        "desc": "Applications natives et cross-platform iOS & Android. Flutter pour la productivité, Kotlin pour la performance native Android.",
-        "tags": ["Flutter", "Kotlin", "iOS", "Android"]
+        "desc": "Applications mobiles iOS & Android avec React Native : une seule base de code pour une expérience fluide et native sur les deux plateformes.",
+        "tags": [
+          "React Native",
+          "Android",
+          "iOS"
+        ]
       },
       {
         "id": "03",
-        "title": "DevOps & Infrastructure",
-        "desc": "Déploiement VPS, mise en place de pipelines CI/CD, conteneurisation Docker, configuration Nginx et maintenance continue en production.",
-        "tags": ["Docker", "CI/CD", "VPS", "Nginx"]
-      },
-      {
-        "id": "04",
         "title": "SEO & Performance",
-        "desc": "Optimisation technique, stratégie de contenu et netlinking pour propulser votre site en première page des moteurs de recherche.",
-        "tags": ["Audit SEO", "Google Analytics", "Performance", "Sitemap"]
+        "desc": "Un meilleur classement sur Google : audit technique, optimisation de la vitesse, stratégie de contenu et netlinking pour gagner en visibilité et en trafic.",
+        "tags": [
+          "Audit SEO",
+          "Performance",
+          "Contenu",
+          "Netlinking"
+        ]
       }
-    ]
+    ],
+    "subtitle": "Du concept au déploiement, je couvre toute la chaîne pour livrer des produits web et mobiles performants."
   },
   "works": {
     "label": "Réalisations",
     "title": "Projets",
     "title_accent": "récents",
     "view_more": "Voir plus de projets",
+    "details": "Détails du projet",
     "items": [
       {
-    "title": "Medicals — Gestion de Santé",
-    "category": "saas",
-    "desc": "Solution HealthTech complète pour la gestion des dossiers patients, le suivi des consultations et l'optimisation des flux médicaux.",
-    "url": "medicals-nine.vercel.app",
-    "image": "medicals"
+        "id": 1,
+        "title": "Medicals — Gestion de Santé",
+        "category": "saas",
+        "desc": "Solution HealthTech complète pour la gestion des dossiers patients, le suivi des consultations et l'optimisation des flux médicaux.",
+        "url": "medicals-nine.vercel.app",
+        "image": "medicals"
       },
-     
-     {
-  "id": 2,
-  "title": "CoinPlace — Crypto & FinTech",
-  "category": "web",
-  "desc": "Plateforme de suivi d'actifs numériques en temps réel. Intégration d'APIs financières pour le monitoring des cours et la gestion de portefeuilles crypto.",
-  "url": "coinplace-mauve.vercel.app",
-  "image": "coinplace"
-},
-    {
-  "id": 3,
-  "title": "Flora Parfums — E-commerce Luxe",
-  "category": "web wordpress",
-  "desc": "Boutique en ligne haut de gamme pour une marque de parfumerie fine. Design épuré, catalogue de produits dynamique et parcours utilisateur optimisé pour le luxe.",
-  "url": "flora-parfums.com",
-  "image": "flora"
-} 
+      {
+        "id": 2,
+        "title": "CoinPlace — Crypto & FinTech",
+        "category": "web",
+        "desc": "Plateforme de suivi d'actifs numériques en temps réel. Intégration d'APIs financières pour le monitoring des cours et la gestion de portefeuilles crypto.",
+        "url": "coinplace-mauve.vercel.app",
+        "image": "coinplace"
+      },
+      {
+        "id": 3,
+        "title": "Flora Parfums — E-commerce Luxe",
+        "category": "web wordpress",
+        "desc": "Boutique en ligne haut de gamme pour une marque de parfumerie fine. Design épuré, catalogue de produits dynamique et parcours utilisateur optimisé pour le luxe.",
+        "url": "flora-parfums.com",
+        "image": "flora"
+      }
     ]
-  
-},
+  },
   "works_page": {
     "title": "Mes",
     "title_accent": "réalisations",
-    "subtitle": "Applications web, mobiles, APIs et solutions d'automatisation — chaque projet est une histoire de problème résolu.",
+    "subtitle": "Applications web, mobiles et APIs — chaque projet est une histoire de problème résolu.",
     "stats": {
       "delivered": "Projets livrés",
       "featured": "Projets Featured",
@@ -177,14 +202,15 @@
     "search_placeholder": "Rechercher un projet...",
     "search_btn": "Rechercher",
     "reset_btn": "Réinitialiser",
-    "no_results": "Aucun projet ne correspond à votre recherche."
+    "no_results": "Aucun projet ne correspond à votre recherche.",
+    "label": "Réalisations"
   },
   "contact": {
     "label": "Contact",
     "intro_label": "Prêt à démarrer ?",
     "intro_title": "Vous avez une idée en ",
     "intro_accent": "tête ?",
-    "intro_desc": "Que ce soit pour un projet ambitieux, une question technique , je suis à votre écoute.",
+    "intro_desc": "Que ce soit pour un projet ambitieux ou une question technique, je suis à votre écoute.",
     "title": "Envoyez-moi un ",
     "subtitle": "message",
     "desc": "Je vous répondrai dans les 24 heures.",
@@ -196,6 +222,12 @@
     "message": "Votre Message",
     "send": "Envoyer le message",
     "availability": "Disponible pour des missions freelance",
+    "response_time": "Réponse garantie sous 24h",
+    "info": {
+      "email_desc": "Pour toute demande professionnelle ou collaboration.",
+      "whatsapp_desc": "Réponse rapide. Disponible du lundi au vendredi.",
+      "location_desc": "Basé au Bénin. Ouvert aux opportunités internationales."
+    },
     "placeholders": {
       "name": "Ex: Jean Dupont",
       "email": "jean@exemple.com",
@@ -209,25 +241,53 @@
       "mobile": "Application Mobile",
       "saas": "SaaS / B2B",
       "seo": "SEO & Performance",
-      "budget1": "Moins de 500k CFA",
-      "budget2": "500k - 1M CFA",
-      "budget3": "Plus de 1M CFA"
-    }
+      "budget1": "Moins de 60 000 CFA",
+      "budget2": "100 000 - 150 000 CFA",
+      "budget3": "Plus de 150 000 CFA"
+    },
+    "success": "Message envoyé ! Je te réponds sous 24h."
   },
   "skills": {
     "label": "Stack Technique",
     "title": "Technologies",
     "title_accent": "maîtrisées",
     "items": [
-      { "name": "HTML5" },
-      { "name": "CSS3" },
-      { "name": "JavaScript" },
-      { "name": "React" },
-      { "name": "Next.js" },
-      { "name": "Tailwind" },
-      { "name": "Node.js" },
-      { "name": "Express" },
-      { "name": "Figma" }
+      {
+        "name": "HTML5"
+      },
+      {
+        "name": "CSS3"
+      },
+      {
+        "name": "JavaScript"
+      },
+      {
+        "name": "React"
+      },
+      {
+        "name": "Next.js"
+      },
+      {
+        "name": "Tailwind"
+      },
+      {
+        "name": "Node.js"
+      },
+      {
+        "name": "Express"
+      },
+      {
+        "name": "Figma"
+      },
+      {
+        "name": "React Native"
+      },
+      {
+        "name": "Supabase"
+      },
+      {
+        "name": "Firebase"
+      }
     ]
   },
   "testimonials": {
@@ -235,6 +295,9 @@
     "title": "Ce que disent mes",
     "title_accent": "clients",
     "cta": "Laisser un avis",
+    "loading": "Chargement des avis récents...",
+    "empty": "Aucun témoignage publié pour le moment.",
+    "view_all": "Voir tous les témoignages →",
     "form": {
       "title": "Partagez votre expérience",
       "name": "Votre Nom",
@@ -252,7 +315,9 @@
       "placeholder_content": "Partagez votre expérience... (min. 20 caractères)",
       "submit": "Envoyer mon avis",
       "helper_email": "Ne sera pas publié",
-      "helper_disclaimer": "Votre avis sera validé avant publication."
+      "helper_disclaimer": "Votre avis sera validé avant publication.",
+      "success": "Merci ! Votre avis a été envoyé et sera publié après validation.",
+      "error": "Impossible d'envoyer l'avis pour le moment."
     }
   },
   "testimonials_page": {
@@ -266,18 +331,34 @@
     "list_title": "Ce qu'ils",
     "list_title_accent": "disent",
     "form_title": "Partagez",
-    "form_title_accent": "votre expérience"
+    "form_title_accent": "votre expérience",
+    "label": "Témoignages"
   },
   "faq": {
     "label": "FAQ",
     "title": "Questions",
     "title_accent": "Fréquentes",
     "items": [
-      { "q": "Quels types de projets réalisez-vous ?", "a": "Je développe des applications web sur mesure (React, Next.js, Laravel), des applications mobiles (Flutter, React Native), des sites e-commerce et des solutions SaaS B2B." },
-      { "q": "Quelle est votre stack technique préférée ?", "a": "Je suis spécialisé dans l'écosystème JavaScript (React, Node.js, TypeScript) et PHP (Laravel). Pour le mobile, j'utilise principalement Flutter ou React Native." },
-      { "q": "Combien de temps prend la création d'un site web ?", "a": "Cela dépend de la complexité. Un site vitrine peut prendre 1 à 2 semaines, tandis qu'une plateforme métier complexe peut nécessiter 1 à 3 mois." },
-      { "q": "Proposez-vous une maintenance après la livraison ?", "a": "Oui, absolument. J'accompagne mes clients avec des forfaits de maintenance pour assurer la sécurité et les mises à jour techniques." },
-      { "q": "Travaillez-vous à distance ?", "a": "Oui, je travaille principalement en télétravail avec des clients basés partout dans le monde." }
+      {
+        "q": "Quels types de projets réalisez-vous ?",
+        "a": "Je développe des applications web sur mesure (React, Next.js, Laravel), des applications mobiles (Flutter, React Native), des sites e-commerce et des solutions SaaS B2B."
+      },
+      {
+        "q": "Quelle est votre stack technique préférée ?",
+        "a": "Je suis spécialisé dans l'écosystème JavaScript (React, Node.js, TypeScript) et PHP (Laravel). Pour le mobile, j'utilise principalement Flutter ou React Native."
+      },
+      {
+        "q": "Combien de temps prend la création d'un site web ?",
+        "a": "Cela dépend de la complexité. Un site vitrine peut prendre 1 à 2 semaines, tandis qu'une plateforme métier complexe peut nécessiter 1 à 3 mois."
+      },
+      {
+        "q": "Proposez-vous une maintenance après la livraison ?",
+        "a": "Oui, absolument. J'accompagne mes clients avec des forfaits de maintenance pour assurer la sécurité et les mises à jour techniques."
+      },
+      {
+        "q": "Travaillez-vous à distance ?",
+        "a": "Oui, je travaille principalement en télétravail avec des clients basés partout dans le monde."
+      }
     ]
   },
   "footer": {
@@ -288,12 +369,18 @@
       "social": "Restons Connectés"
     },
     "contact": {
-      "phone": "+229 01 00 00 00 00",
-      "email": "contact@owedev.me",
+      "phone": "+229 01 49 66 14 31",
+      "email": "oweedev@gmail.com",
       "location": "Cotonou, Bénin"
     },
     "social_text": "Suivez mon parcours — projets, expériences et coulisses.",
     "rights": "Tous droits réservés.",
-    "made_by": "Fait par Owedev"
+    "made_by": "Conçu & développé par",
+    "stack": [
+      "Développement Web",
+      "Développement Mobile",
+      "Backend & API REST",
+      "SEO & Performance"
+    ]
   }
 }

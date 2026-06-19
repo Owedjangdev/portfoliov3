@@ -1,20 +1,15 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import emailjs from '@emailjs/browser'
 import { HiMail, HiLocationMarker, HiPaperAirplane, HiCheckCircle, HiXCircle } from 'react-icons/hi'
 import { FaWhatsapp } from 'react-icons/fa'
 import { contactStyles as s } from '../styles/contact.styles'
-import { supabase } from '../lib/supabaseClient'
+import { api } from '../lib/api'
 
 const Contact = () => {
   const { t } = useTranslation()
   const [loading, setLoading] = useState(false)
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
-
-  useEffect(() => {
-    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
-  }, [])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -35,26 +30,17 @@ const Contact = () => {
     }
 
     try {
-      // 1. BACKEND (SUPABASE)
-      const { error: dbError } = await supabase.from('contact_messages').insert([data])
-      if (dbError) throw new Error(`DB: ${dbError.message}`)
-
-      // 2. EMAIL (EMAILJS)
-      const emailRes = await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        data
-      )
-      if (emailRes.status !== 200) throw new Error(`EmailJS: ${emailRes.text}`)
+      // Le backend enregistre en base (MongoDB) ET envoie l'email (Nodemailer)
+      await api('/contact', { method: 'POST', body: data })
 
       setStatus('success')
       form.reset()
       setTimeout(() => setStatus('idle'), 6000)
 
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Erreur:", error)
       setStatus('error')
-      setErrorMessage(error.message || "Une erreur est survenue")
+      setErrorMessage(error instanceof Error ? error.message : "Une erreur est survenue")
     } finally {
       setLoading(false)
     }
@@ -81,22 +67,22 @@ const Contact = () => {
             <div className={s.infoCard}>
               <div className={s.iconBox}><HiMail size={24} /></div>
               <h3 className={s.infoTitle}>Email</h3>
-              <p className={s.infoDesc}>Pour toute demande professionnelle ou collaboration.</p>
-              <a href="mailto:oweedev@gmail.com" className={s.infoLink}>oweedev@gmail.com</a>
+              <p className={s.infoDesc}>{t('contact.info.email_desc')}</p>
+              <a href={`mailto:${t('footer.contact.email')}`} className={s.infoLink}>{t('footer.contact.email')}</a>
             </div>
 
             <div className={s.infoCard}>
               <div className={s.iconBox}><FaWhatsapp size={24} /></div>
               <h3 className={s.infoTitle}>WhatsApp</h3>
-              <p className={s.infoDesc}>Réponse rapide garantie. Disponible du lundi au vendredi.</p>
-              <a href="https://wa.me/22997957777" className={s.infoLink}>+229 0149661431 →</a>
+              <p className={s.infoDesc}>{t('contact.info.whatsapp_desc')}</p>
+              <a href="https://wa.me/2290149661431" className={s.infoLink}>{t('footer.contact.phone')} →</a>
             </div>
 
             <div className={s.infoCard}>
               <div className={s.iconBox}><HiLocationMarker size={24} /></div>
               <h3 className={s.infoTitle}>Localisation</h3>
-              <p className={s.infoDesc}>Basé au Bénin. Ouvert aux opportunités internationales.</p>
-              <span className={s.infoLink}>Cotonou, Bénin</span>
+              <p className={s.infoDesc}>{t('contact.info.location_desc')}</p>
+              <span className={s.infoLink}>{t('footer.contact.location')}</span>
             </div>
           </div>
 
@@ -110,23 +96,23 @@ const Contact = () => {
             <form onSubmit={handleSubmit}>
               <div className={s.inputGrid}>
                 <div className={s.group}>
-                  <label className={s.label}>{t('contact.name')} *</label>
-                  <input name="name" required className={s.input} placeholder={t('contact.placeholders.name')} />
+                  <label htmlFor="contact-name" className={s.label}>{t('contact.name')} *</label>
+                  <input id="contact-name" name="name" required autoComplete="name" className={s.input} placeholder={t('contact.placeholders.name')} />
                 </div>
                 <div className={s.group}>
-                  <label className={s.label}>{t('contact.email')} *</label>
-                  <input name="email" type="email" required className={s.input} placeholder={t('contact.placeholders.email')} />
+                  <label htmlFor="contact-email" className={s.label}>{t('contact.email')} *</label>
+                  <input id="contact-email" name="email" type="email" required autoComplete="email" className={s.input} placeholder={t('contact.placeholders.email')} />
                 </div>
               </div>
 
               <div className={s.inputGrid}>
                 <div className={s.group}>
-                  <label className={s.label}>{t('contact.phone')}</label>
-                  <input name="phone" className={s.input} placeholder={t('contact.placeholders.phone')} />
+                  <label htmlFor="contact-phone" className={s.label}>{t('contact.phone')}</label>
+                  <input id="contact-phone" name="phone" type="tel" autoComplete="tel" className={s.input} placeholder={t('contact.placeholders.phone')} />
                 </div>
                 <div className={s.group}>
-                  <label className={s.label}>{t('contact.project_type')} *</label>
-                  <select name="project_type" required className={s.select}>
+                  <label htmlFor="contact-project" className={s.label}>{t('contact.project_type')} *</label>
+                  <select id="contact-project" name="project_type" required className={s.select}>
                     <option value="">{t('contact.placeholders.project')}</option>
                     <option value="Développement Web">{t('contact.options.web')}</option>
                     <option value="Application Mobile">{t('contact.options.mobile')}</option>
@@ -137,18 +123,18 @@ const Contact = () => {
               </div>
 
               <div className={s.group + " mb-6"}>
-                <label className={s.label}>{t('contact.budget')}</label>
-                <select name="budget" className={s.select}>
+                <label htmlFor="contact-budget" className={s.label}>{t('contact.budget')}</label>
+                <select id="contact-budget" name="budget" className={s.select}>
                   <option value="">{t('contact.placeholders.budget')}</option>
-                  <option value="Petit Budget">{t('contact.options.budget1')}</option>
-                  <option value="Budget Moyen">{t('contact.options.budget2')}</option>
-                  <option value="Gros Budget">{t('contact.options.budget3')}</option>
+                  <option value="Moins de 60 000 CFA">{t('contact.options.budget1')}</option>
+                  <option value="100 000 - 150 000 CFA">{t('contact.options.budget2')}</option>
+                  <option value="Plus de 150 000 CFA">{t('contact.options.budget3')}</option>
                 </select>
               </div>
 
               <div className={s.group}>
-                <label className={s.label}>{t('contact.message')} *</label>
-                <textarea name="message" required className={s.textarea} placeholder={t('contact.placeholders.message')} />
+                <label htmlFor="contact-message" className={s.label}>{t('contact.message')} *</label>
+                <textarea id="contact-message" name="message" required className={s.textarea} placeholder={t('contact.placeholders.message')} />
               </div>
 
               <div className={s.footer}>
@@ -162,8 +148,9 @@ const Contact = () => {
                    status === 'error' ? <><HiXCircle size={20}/> Erreur</> : 
                    <><HiPaperAirplane className="rotate-90"/> {t('contact.send')}</>}
                 </button>
-                {status === 'error' && <p className="text-red-500 text-[10px] mt-2 font-bold">{errorMessage}</p>}
-                <p className={s.responseMsg}>Réponse garantie sous 24h</p>
+                {status === 'error' && <p role="alert" className={s.errorMsg}>{errorMessage}</p>}
+                {status === 'success' && <p role="status" className={s.successMsg}>{t('contact.success')}</p>}
+                <p className={s.responseMsg}>{t('contact.response_time')}</p>
               </div>
             </form>
           </div>

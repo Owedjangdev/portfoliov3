@@ -1,35 +1,40 @@
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { HiStar } from 'react-icons/hi'
-import { supabase } from '../lib/supabaseClient'
+import { api } from '../lib/api'
 import { tPage as s } from '../styles/testimonialsPage.styles'
 import { testimonialStyles as cardStyles } from '../styles/testimonials.styles'
 import ReviewForm from '../components/ReviewForm' // On utilise ton composant existant
 
+interface Review {
+  id: string | number
+  name?: string
+  role?: string
+  company?: string
+  content?: string
+  rating: number
+}
 
 const TestimonialsPage: React.FC = () => {
   const { t } = useTranslation()
-  const [reviews, setReviews] = useState<any[]>([])
+  const [reviews, setReviews] = useState<Review[]>([])
   const [stats, setStats] = useState({ count: 0, average: 0 })
 
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await api<Review[]>('/testimonials')
+        setReviews(data)
+        const avg = data.length > 0 ? data.reduce((acc, curr) => acc + curr.rating, 0) / data.length : 0
+        setStats({ count: data.length, average: Number(avg.toFixed(1)) || 0 })
+      } catch (error) {
+        console.error('Erreur chargement témoignages:', error)
+      }
+    }
+
     window.scrollTo(0, 0)
     fetchData()
   }, [])
-
-  const fetchData = async () => {
-    const { data } = await supabase
-      .from('testimonials')
-      .select('*')
-      .order('created_at', { ascending: false })
-
-    if (data) {
-      setReviews(data)
-      // Calcul des stats dynamiques
-      const avg = data.reduce((acc, curr) => acc + curr.rating, 0) / data.length
-      setStats({ count: data.length, average: Number(avg.toFixed(1)) || 0 })
-    }
-  }
 
   return (
     <div className={s.section}>
@@ -37,6 +42,7 @@ const TestimonialsPage: React.FC = () => {
         
         {/* --- HEADER --- */}
         <header className={s.header}>
+          <span className={s.label}>{t('testimonials_page.label')}</span>
           <h1 className={s.title}>
             {t('testimonials_page.title')}
             <span className={s.titleAccent}>{t('testimonials_page.title_accent')}</span>
@@ -90,6 +96,12 @@ const TestimonialsPage: React.FC = () => {
           ))}
         </div>
 
+        {reviews.length === 0 && (
+          <div className={cardStyles.emptyState}>
+            {t('testimonials.empty')}
+          </div>
+        )}
+
         {/* --- FORM SECTION (Utilise ton ReviewForm) --- */}
         <div className={s.formSection}>
           <div className="mb-12">
@@ -100,7 +112,7 @@ const TestimonialsPage: React.FC = () => {
             </h2>
           </div>
           
-          <ReviewForm onSuccess={(newRev) => setReviews(p => [newRev, ...p])} />
+          <ReviewForm />
         </div>
 
       </div>

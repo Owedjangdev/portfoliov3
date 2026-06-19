@@ -1,9 +1,10 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { HiChevronDown } from 'react-icons/hi'
 import { faqStyles as s } from '../styles/faq.styles'
+import { prefersReducedMotion } from '../lib/motion'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -17,34 +18,33 @@ const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const sectionRef = useRef<HTMLElement>(null)
 
-  // --- SÉCURITÉ IMPORTANTE ---
-  // On récupère les données avec returnObjects: true
-  const rawData = t('faq.items', { returnObjects: true })
-  
-  // On s'assure que 'items' est bien un tableau, sinon on met un tableau vide
-  const items = Array.isArray(rawData) ? (rawData as FAQItem[]) : []
-
-  // Debug pour voir ce que i18next reçoit (Regarde ta console F12)
-  useEffect(() => {
-    console.log("FAQ Items reçus :", items)
-  }, [items])
+  const items = useMemo(() => {
+    const rawData = t('faq.items', { returnObjects: true })
+    return Array.isArray(rawData) ? (rawData as FAQItem[]) : []
+  }, [t])
 
   useEffect(() => {
-    if (items.length === 0) return
+    if (items.length === 0 || prefersReducedMotion()) return
 
     const ctx = gsap.context(() => {
-      gsap.from(".faq-item", {
-        opacity: 0,
-        y: 30,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".faq-wrapper",
-          start: "top 85%",
-          once: true // L'animation ne se joue qu'une fois
+      gsap.fromTo(
+        ".faq-item",
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "power3.out",
+          // Garde les items visibles tant que le ScrollTrigger n'a pas démarré
+          immediateRender: false,
+          scrollTrigger: {
+            trigger: ".faq-wrapper",
+            start: "top 85%",
+            once: true
+          }
         }
-      })
+      )
     }, sectionRef)
     return () => ctx.revert()
   }, [items])
@@ -71,7 +71,6 @@ const FAQ = () => {
               <div 
                 key={index} 
                 className={`faq-item ${s.item} ${activeIndex === index ? s.itemActive : ''}`}
-                style={{ opacity: 1 }} // Force l'opacité initiale si GSAP bug
               >
                 <button 
                   onClick={() => toggleAccordion(index)}
@@ -91,7 +90,6 @@ const FAQ = () => {
               </div>
             ))
           ) : (
-            // Message si le JSON est vide ou mal lu
             <div className="text-center py-10">
                <p className="text-gray-500 italic">Chargement des questions...</p>
             </div>

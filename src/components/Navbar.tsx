@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useTheme } from '../context/ThemeContext'
+import { useTheme } from '../context/theme'
 import { HiSun, HiMoon, HiMenuAlt3, HiX, HiChevronDown } from 'react-icons/hi'
 import { Link, NavLink } from 'react-router-dom' 
 import ReactCountryFlag from 'react-country-flag'
 import { navbarStyles as s } from '../styles/navbar.styles'
 import useScrolled from '../hooks/useScrolled'
-import useLangDropdown from '../hooks/seLangDropdown' 
+import useLangDropdown from '../hooks/seLangDropdown'
+import logo from '../assets/images/logoowedev.jpg'
 
 const languages = [
   { code: 'fr', country: 'FR', label: 'Français' },
@@ -42,8 +43,8 @@ const Navbar = () => {
   return (
     <header className={s.header(scrolled)}>
       <div className={s.container}>
-        <Link to="/" className={s.logo}>
-          owe<span className="text-blue-500">dev</span>
+        <Link to="/" className="flex items-center" onClick={() => setIsOpen(false)} aria-label="OweDev Digitaly - accueil">
+          <img src={logo} alt="OweDev Digitaly" className="h-9 w-auto rounded-md md:h-10" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -60,7 +61,12 @@ const Navbar = () => {
 
         <div className="flex items-center gap-3">
           <div className="relative" ref={langRef}>
-            <button onClick={() => setLangOpen(!langOpen)} className={s.langButton}>
+            <button
+              onClick={() => setLangOpen(!langOpen)}
+              className={s.langButton}
+              aria-expanded={langOpen}
+              aria-label="Changer de langue"
+            >
               <ReactCountryFlag countryCode={activeLang.country} svg style={{ width: '1.1em' }} />
               <span>{activeLang.code.toUpperCase()}</span>
               <HiChevronDown size={12} className={s.chevron(langOpen)} />
@@ -83,7 +89,7 @@ const Navbar = () => {
             )}
           </div>
 
-          <button onClick={toggleTheme} className={s.themeButton}>
+          <button onClick={toggleTheme} className={s.themeButton} aria-label={isDark ? 'Activer le mode clair' : 'Activer le mode sombre'}>
             {isDark ? <HiSun size={18} /> : <HiMoon size={18} />}
           </button>
 
@@ -91,7 +97,12 @@ const Navbar = () => {
             {t('nav.cta')}
           </Link>
 
-          <button onClick={() => setIsOpen(!isOpen)} className={s.mobileButton}>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className={s.mobileButton}
+            aria-expanded={isOpen}
+            aria-label="Ouvrir le menu"
+          >
             {isOpen ? <HiX size={22} /> : <HiMenuAlt3 size={22} />}
           </button>
         </div>
@@ -100,7 +111,12 @@ const Navbar = () => {
       {isOpen && (
         <div className={s.mobileMenu}>
           {navLinks.map((link) => (
-            <NavLink key={link.to} to={link.to} onClick={() => setIsOpen(false)} className={s.mobileLink}>
+            <NavLink
+              key={link.to}
+              to={link.to}
+              onClick={() => setIsOpen(false)}
+              className={({ isActive }) => `${s.mobileLink} ${isActive ? 'text-blue-500' : ''}`}
+            >
               {link.label}
             </NavLink>
           ))}

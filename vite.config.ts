@@ -4,5 +4,15 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss(),],
+  plugins: [react(), tailwindcss()],
+  server: {
+    // Proxy: le front appelle /api (même origine) → Vite relaie vers le backend.
+    // Élimine tout problème CORS entre localhost et 127.0.0.1.
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true,
+      },
+    },
+  },
 })

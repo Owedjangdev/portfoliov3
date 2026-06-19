@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { BsBriefcaseFill, BsMortarboardFill } from 'react-icons/bs'
 import epiphaneImg from '../assets/images/epiphane.webp'
 import { aboutStyles as s } from '../styles/about.styles'
+import { prefersReducedMotion } from '../lib/motion'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -33,8 +34,9 @@ const About = () => {
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
+    if (prefersReducedMotion()) return
+
     const ctx = gsap.context(() => {
-      // Animations du haut
       gsap.fromTo('.about-image', { opacity: 0, x: -60 }, {
         opacity: 1, x: 0, duration: 0.9, ease: 'power3.out',
         scrollTrigger: { trigger: '.about-image', start: 'top 80%', once: true },
@@ -44,7 +46,6 @@ const About = () => {
         scrollTrigger: { trigger: '.about-content', start: 'top 80%', once: true },
       })
 
-      // Animation des listes (Exp & Edu)
       gsap.fromTo('.timeline-item', { opacity: 0, x: -20 }, {
         opacity: 1, x: 0, duration: 0.6, ease: 'power3.out', stagger: 0.1,
         scrollTrigger: { trigger: '.timeline-list', start: 'top 85%', once: true },

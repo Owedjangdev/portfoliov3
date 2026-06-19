@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-scroll'
+import { Link as RouterLink } from 'react-router-dom'
 import { HiArrowRight } from 'react-icons/hi'
 import { SiWordpress } from 'react-icons/si'
 import { MdPhoneIphone } from 'react-icons/md'
@@ -8,6 +9,7 @@ import { TbSeo, TbCode } from 'react-icons/tb'
 import gsap from 'gsap'
 import owedevImg from '../assets/images/owedev.webp'
 import { heroStyles as s } from '../styles/hero.styles'
+import { prefersReducedMotion } from '../lib/motion'
 
 interface Service {
   icon: React.ReactNode
@@ -27,9 +29,9 @@ const Hero = () => {
   const rightRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
+    if (prefersReducedMotion()) return
 
-      // Animation entrée principale
+    const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
       tl.fromTo('.hero-badge',    { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.6 })
         .fromTo('.hero-greeting', { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.6 }, '-=0.3')
@@ -41,7 +43,6 @@ const Hero = () => {
         .fromTo('.hero-image',    { opacity: 0, x: 60, scale: 0.95 }, { opacity: 1, x: 0, scale: 1, duration: 0.9 }, '-=0.8')
         .fromTo('.float-card',    { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.4, stagger: 0.15 }, '-=0.4')
 
-      // Animation flottante continue pour chaque carte
       gsap.utils.toArray<HTMLElement>('.float-card').forEach((card, i) => {
         gsap.to(card, {
           y: i % 2 === 0 ? -10 : 10,
@@ -97,14 +98,7 @@ const Hero = () => {
 ]
   return (
     <section id="hero" className={s.section}>
-
-      {/* Blobs décoratifs */}
-      <div className={s.bgBlob1} />
-      <div className={s.bgBlob2} />
-
       <div className={s.container}>
-
-        {/* Gauche */}
         <div ref={leftRef} className={s.left}>
 
           <div className={`hero-badge ${s.badge}`}>
@@ -144,9 +138,9 @@ const Hero = () => {
               {t('hero.cta_primary')}
               <HiArrowRight size={16} />
             </Link>
-            <Link to="contact" spy smooth duration={500} offset={-72} className={s.ctaSecondary}>
+            <RouterLink to="/contact" className={s.ctaSecondary}>
               {t('hero.cta_secondary')}
-            </Link>
+            </RouterLink>
           </div>
 
           <div className={`hero-services ${s.services}`}>
@@ -160,33 +154,29 @@ const Hero = () => {
 
         </div>
 
-        {/* Droite — Photo + cartes flottantes */}
         <div ref={rightRef} className={s.right}>
           <div className={`hero-image ${s.imageWrapper}`}>
-
-            {/* Glow derrière la photo */}
             <div className={s.imageBg} />
 
-            {/* Photo */}
             <img
               src={owedevImg}
               alt="owedev — Full Stack Developer & SEO Expert"
               className={s.image}
+              width="384"
+              height="480"
+              fetchPriority="high"
             />
-
-            {/* Cartes flottantes */}
-        
-{floatingCards.map((card: FloatingCard) => (
-  <div
-    key={card.label}
-    className={`float-card ${card.position} flex items-center gap-2 px-3 py-2 rounded-xl border backdrop-blur-md bg-white/80 dark:bg-[#16161F]/80 shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.5)] ${card.color} text-[10px] md:text-xs font-semibold font-[Inter] whitespace-nowrap z-20 transition-transform duration-300 hover:scale-110`}
-  >
-    <span className="flex items-center justify-center">
-      {card.icon}
-    </span>
-    {card.label}
-  </div>
-))}
+            {floatingCards.map((card: FloatingCard) => (
+              <div
+                key={card.label}
+                className={`float-card ${card.position} flex items-center gap-2 px-3 py-2 rounded-lg border backdrop-blur-md bg-white/85 dark:bg-[#16161F]/85 shadow-[0_8px_24px_rgb(15,23,42,0.12)] dark:shadow-[0_8px_28px_rgb(0,0,0,0.45)] ${card.color} text-[10px] md:text-xs font-semibold font-[Inter] whitespace-nowrap z-20 transition-transform duration-300 hover:scale-105`}
+              >
+                <span className="flex items-center justify-center">
+                  {card.icon}
+                </span>
+                {card.label}
+              </div>
+            ))}
 
           </div>
         </div>

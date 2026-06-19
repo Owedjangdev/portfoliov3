@@ -1,12 +1,12 @@
 export const skillsStyles = {
-  section: 'relative py-10 bg-white dark:bg-[#0A0A0F] overflow-hidden',
+  section: 'relative py-24 bg-white dark:bg-[#0A0A0F] overflow-hidden',
   container: 'max-w-6xl mx-auto px-6 flex flex-col items-center',
   
   // Header
-  header: 'text-center mb-20',
-  label: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] mb-4 border border-blue-100 dark:border-blue-500/20 inline-block',
-  title: 'text-4xl md:text-6xl font-black font-[Clash_Display] text-gray-900 dark:text-white',
-  titleAccent: 'italic font-serif font-light text-blue-700 dark:text-blue-400 ml-2',
+  header: 'text-center mb-16',
+  label: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 px-4 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-[0.2em] mb-4 border border-blue-100 dark:border-blue-500/20 inline-block',
+  title: 'text-4xl md:text-5xl font-black font-[Clash_Display] text-gray-900 dark:text-white',
+  titleAccent: 'font-[Clash_Display] bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent ml-2',
 
   // Orbit System
   orbitContainer: 'relative w-full aspect-square max-w-[600px] flex items-center justify-center',
@@ -20,6 +20,6 @@ export const skillsStyles = {
   
   // Icônes de technologie
   techCard: 'absolute z-30 flex flex-col items-center gap-2 group',
-  iconBox: 'w-12 h-12 md:w-16 md:h-16 bg-white dark:bg-[#16161F] border border-gray-100 dark:border-white/10 rounded-2xl flex items-center justify-center shadow-sm group-hover:shadow-blue-500/20 group-hover:border-blue-500/50 transition-all duration-300',
+  iconBox: 'w-12 h-12 md:w-16 md:h-16 bg-white dark:bg-[#16161F] border border-gray-100 dark:border-white/10 rounded-lg flex items-center justify-center shadow-sm group-hover:shadow-blue-500/20 group-hover:border-blue-500/50 transition-all duration-300',
   iconName: 'text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity',
 }

@@ -1,38 +1,36 @@
 import { useTranslation } from 'react-i18next'
 import { HiPhone, HiMail, HiLocationMarker, HiChevronRight } from 'react-icons/hi'
-import { FaLinkedinIn, FaGithub, FaTwitter, FaWhatsapp } from 'react-icons/fa'
+import { FaLinkedinIn, FaGithub, FaWhatsapp } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 import { footerStyles as s } from '../styles/footer.styles'
+import logo from '../assets/images/logoowedev.jpg'
 
 const Footer = () => {
   const { t } = useTranslation()
-  const currentYear = new Date().getFullYear()
 
   const navLinks = [
-    { label: t('nav.about'), href: '#about' },
-    { label: t('nav.works'), href: '#works' },
-    { label: t('nav.services'), href: '#services' },
-    { label: t('nav.contact'), href: '#contact' }
+    { label: t('nav.about'), to: '/' },
+    { label: t('nav.works'), to: '/realisations' },
+    { label: t('nav.services'), to: '/services' },
+    { label: t('nav.reviews'), to: '/temoignages' },
+    { label: t('nav.contact'), to: '/contact' },
   ]
 
-  const stackLinks = [
-    "Développement Web & Mobile",
-    "API REST & Backend",
-    "Architecture Cloud",
-    "Consulting Technique"
-  ]
+  const stackItems = t('footer.stack', { returnObjects: true })
+  const stackLinks = Array.isArray(stackItems) ? (stackItems as string[]) : []
+
+  const WHATSAPP = '2290154215693'
 
   return (
     <footer className={s.footer}>
       <div className={s.container}>
         <div className={s.grid}>
-          
-          {/* Colonne 1 : Intro & Contact */}
+
+          {/* Colonne 1 : Marque & Contact */}
           <div className={s.logoArea}>
-            <div className="flex items-center gap-2">
-               <div className="w-8 h-8 bg-blue-600 rounded-lg" /> {/* Remplace par ton vrai logo */}
-              <span className="text-xl font-black text-slate-900 dark:text-white tracking-tighter">
-  owe<span className="text-blue-600">dev</span>
-</span>            </div>
+            <Link to="/" className="w-fit">
+              <img src={logo} alt="OweDev Digitaly" className="h-11 w-auto rounded-lg" />
+            </Link>
             <p className={s.description}>{t('footer.description')}</p>
             <div className={s.contactList}>
               <a href={`tel:${t('footer.contact.phone')}`} className={s.contactItem}>
@@ -47,13 +45,15 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Colonne 2 : Stack */}
+          {/* Colonne 2 : Stack & Compétences (liens vers Services) */}
           <div>
             <h4 className={s.columnTitle}>{t('footer.columns.stack')}</h4>
             <ul className={s.linkList}>
-              {stackLinks.map((item, i) => (
-                <li key={i} className={s.linkItem}>
-                  <HiChevronRight className={s.linkIcon} /> {item}
+              {stackLinks.map((item) => (
+                <li key={item}>
+                  <Link to="/services" className={s.linkItem}>
+                    <HiChevronRight className={s.linkIcon} /> {item}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -63,38 +63,27 @@ const Footer = () => {
           <div>
             <h4 className={s.columnTitle}>{t('footer.columns.nav')}</h4>
             <ul className={s.linkList}>
-              {navLinks.map((link, i) => (
-                <li key={i}>
-                  <a href={link.href} className={s.linkItem}>
+              {navLinks.map((link) => (
+                <li key={link.to}>
+                  <Link to={link.to} className={s.linkItem}>
                     <HiChevronRight className={s.linkIcon} /> {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Colonne 4 : Socials */}
+          {/* Colonne 4 : Réseaux */}
           <div>
             <h4 className={s.columnTitle}>{t('footer.columns.social')}</h4>
             <p className={s.socialText}>{t('footer.social_text')}</p>
             <div className={s.socialGrid}>
-              <a href="#" className={s.socialIcon}><FaLinkedinIn /></a>
-              <a href="#" className={s.socialIcon}><FaGithub /></a>
-              <a href="#" className={s.socialIcon}><FaTwitter /></a>
-              <a href="#" className={s.socialIcon}><FaWhatsapp /></a>
+              <a href="https://www.linkedin.com/in/owedev" target="_blank" rel="noopener noreferrer" className={s.socialIcon} aria-label="LinkedIn"><FaLinkedinIn /></a>
+              <a href="https://github.com/Owedjangdev" target="_blank" rel="noopener noreferrer" className={s.socialIcon} aria-label="GitHub"><FaGithub /></a>
+              <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener noreferrer" className={s.socialIcon} aria-label="WhatsApp"><FaWhatsapp /></a>
             </div>
           </div>
 
-        </div>
-
-        {/* Barre de fin */}
-        <div className={s.bottomBar}>
-          <p className={s.copyright}>
-            © {currentYear} <span className="text-white font-bold">OWEDEV</span>. {t('footer.rights')}
-          </p>
-          <p className={s.credits}>
-            {t('footer.made_by')} <span className="text-blue-500 font-bold">owedev</span>
-          </p>
         </div>
       </div>
     </footer>
