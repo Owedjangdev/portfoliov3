@@ -341,11 +341,11 @@
     "items": [
       {
         "q": "What types of projects do you handle?",
-        "a": "I develop custom web applications (React, Next.js, Laravel), mobile apps (Flutter, React Native), e-commerce sites, and B2B SaaS solutions."
+        "a": "I develop custom web applications (React, Next.js, Node.js), mobile apps (React Native), e-commerce sites, and B2B SaaS solutions."
       },
       {
         "q": "What is your preferred tech stack?",
-        "a": "I specialize in the JavaScript ecosystem (React, Node.js, TypeScript) and PHP (Laravel). For mobile, I primarily use Flutter or React Native."
+        "a": "I specialize in the JavaScript/TypeScript ecosystem: React and Next.js on the front end, Node.js and Express on the back end, with MongoDB for data. For mobile, I use React Native."
       },
       {
         "q": "How long does it take to build a website?",

@@ -341,11 +341,11 @@
     "items": [
       {
         "q": "Quels types de projets réalisez-vous ?",
-        "a": "Je développe des applications web sur mesure (React, Next.js, Laravel), des applications mobiles (Flutter, React Native), des sites e-commerce et des solutions SaaS B2B."
+        "a": "Je développe des applications web sur mesure (React, Next.js, Node.js), des applications mobiles (React Native), des sites e-commerce et des solutions SaaS B2B."
       },
       {
         "q": "Quelle est votre stack technique préférée ?",
-        "a": "Je suis spécialisé dans l'écosystème JavaScript (React, Node.js, TypeScript) et PHP (Laravel). Pour le mobile, j'utilise principalement Flutter ou React Native."
+        "a": "Je suis spécialisé dans l'écosystème JavaScript/TypeScript : React et Next.js côté front, Node.js et Express côté back, avec MongoDB pour les données. Pour le mobile, j'utilise React Native."
       },
       {
         "q": "Combien de temps prend la création d'un site web ?",
