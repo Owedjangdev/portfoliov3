@@ -57,7 +57,7 @@ const About = () => {
   const stats: Stat[] = [
     { number: '3+',  label: t('about.stats.experience') },
     { number: '15+', label: t('about.stats.projects')   },
-    { number: '10+', label: t('about.stats.clients')    },
+    { number: '2',   label: t('about.stats.clients')    },
   ]
 
   const expItems: ExpItem[] = t('about.exp_items', { returnObjects: true }) as ExpItem[]

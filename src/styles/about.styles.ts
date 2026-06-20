@@ -28,7 +28,7 @@ export const aboutStyles = {
   label:
     'text-blue-500 text-sm font-semibold font-[Inter] uppercase tracking-widest',
   title:
-    'text-4xl md:text-5xl font-black font-[Clash_Display] text-gray-900 dark:text-white leading-tight',
+    'text-3xl sm:text-4xl md:text-5xl font-black font-[Clash_Display] text-gray-900 dark:text-white leading-tight break-words',
   bio:
     'text-base text-gray-500 dark:text-gray-400 font-[Inter] leading-relaxed',
   statsWrapper:
