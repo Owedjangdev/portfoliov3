@@ -229,12 +229,12 @@
       "location_desc": "Basé au Bénin. Ouvert aux opportunités internationales."
     },
     "placeholders": {
-      "name": "Ex: Jean Dupont",
-      "email": "jean@exemple.com",
-      "phone": "+229 XX XX XX XX",
+      "name": "Votre nom",
+      "email": "Votre email",
+      "phone": "Votre téléphone",
       "project": "Sélectionnez une option",
       "budget": "Sélectionnez une fourchette",
-      "message": "Décrivez votre projet, vos objectifs, vos questions..."
+      "message": "Votre message"
     },
     "options": {
       "web": "Développement Web",
@@ -307,12 +307,12 @@
       "project": "Projet Concerné",
       "rating": "Votre Note",
       "content": "Votre Avis",
-      "placeholder_name": "Ex: Jean Dupont",
-      "placeholder_email": "jean@exemple.com",
-      "placeholder_company": "Nom de l'entreprise",
-      "placeholder_role": "Ex: CEO, CTO, Product Manager",
-      "placeholder_project": "Nom du projet sur lequel on a collaboré",
-      "placeholder_content": "Partagez votre expérience... (min. 20 caractères)",
+      "placeholder_name": "Votre nom",
+      "placeholder_email": "Votre email",
+      "placeholder_company": "Votre entreprise",
+      "placeholder_role": "Votre fonction",
+      "placeholder_project": "Le projet concerné",
+      "placeholder_content": "Votre avis",
       "submit": "Envoyer mon avis",
       "helper_email": "Ne sera pas publié",
       "helper_disclaimer": "Votre avis sera validé avant publication.",

@@ -5,7 +5,7 @@ export const skillsStyles = {
   // Header
   header: 'text-center mb-16',
   label: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 px-4 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-[0.2em] mb-4 border border-blue-100 dark:border-blue-500/20 inline-block',
-  title: 'text-4xl md:text-5xl font-black font-[Clash_Display] text-gray-900 dark:text-white',
+  title: 'text-3xl sm:text-4xl md:text-5xl font-black font-[Clash_Display] text-gray-900 dark:text-white text-center leading-tight',
   titleAccent: 'font-[Clash_Display] bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent ml-2',
 
   // Orbit System

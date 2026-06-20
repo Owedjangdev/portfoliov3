@@ -3,7 +3,8 @@ import { HiPhone, HiMail, HiLocationMarker, HiChevronRight } from 'react-icons/h
 import { FaLinkedinIn, FaGithub, FaWhatsapp } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { footerStyles as s } from '../styles/footer.styles'
-import logo from '../assets/images/logoowedev.jpg'
+import logoLight from '../assets/images/logo-light.png'
+import logoDark from '../assets/images/logo-dark.png'
 
 const Footer = () => {
   const { t } = useTranslation()
@@ -29,7 +30,8 @@ const Footer = () => {
           {/* Colonne 1 : Marque & Contact */}
           <div className={s.logoArea}>
             <Link to="/" className="w-fit">
-              <img src={logo} alt="OweDev Digitaly" className="h-11 w-auto rounded-lg" />
+              <img src={logoLight} alt="OweDev Digitaly" className="h-10 w-auto block dark:hidden" />
+              <img src={logoDark} alt="OweDev Digitaly" className="h-10 w-auto hidden dark:block" />
             </Link>
             <p className={s.description}>{t('footer.description')}</p>
             <div className={s.contactList}>

@@ -13,7 +13,8 @@ import {
 } from 'react-icons/hi'
 import { useAuth } from '../context/auth'
 import { useTheme } from '../context/theme'
-import logo from '../assets/images/logoowedev.jpg'
+import logoLight from '../assets/images/logo-light.png'
+import logoDark from '../assets/images/logo-dark.png'
 
 const navItems = [
   { label: 'Vue globale', to: '/dashboard', icon: HiViewGrid, end: true },
@@ -39,7 +40,8 @@ const DashboardLayout = () => {
     <div className="min-h-screen bg-slate-100 text-slate-950 dark:bg-[#080A12] dark:text-white">
       <aside className="fixed inset-y-0 left-0 z-30 hidden w-72 border-r border-slate-200 bg-white px-4 py-6 dark:border-white/10 dark:bg-[#0D101B] lg:block">
         <div className="mb-10 px-2">
-          <img src={logo} alt="OweDev Digitaly" className="h-10 w-auto rounded-md" />
+          <img src={logoLight} alt="OweDev Digitaly" className="h-9 w-auto block dark:hidden" />
+          <img src={logoDark} alt="OweDev Digitaly" className="h-9 w-auto hidden dark:block" />
           <p className="mt-2 text-[11px] font-black uppercase tracking-[0.18em] text-slate-400 dark:text-slate-500">Dashboard admin</p>
         </div>
 

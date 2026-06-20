@@ -2,10 +2,10 @@ export const testimonialStyles = {
   // Section principale
   section: 'relative py-24  dark:bg-[#0A0A0F] overflow-hidden',
   container: 'max-w-6xl mx-auto px-6',
-  header: 'flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16',
-  headerLeft: 'flex flex-col gap-4',
+  header: 'flex flex-col items-center text-center md:flex-row md:items-end md:text-left justify-between gap-6 mb-16',
+  headerLeft: 'flex flex-col items-center md:items-start gap-4',
   label: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 px-4 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-[0.2em] inline-block w-fit border border-blue-100 dark:border-blue-500/20',
-  title: 'text-4xl md:text-5xl font-black font-[Clash_Display] text-gray-900 dark:text-white',
+  title: 'text-3xl sm:text-4xl md:text-5xl font-black font-[Clash_Display] text-gray-900 dark:text-white leading-tight',
   titleAccent: 'font-[Clash_Display] bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent ml-2',
   ctaBtn: 'group flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-bold text-sm transition-all shadow-lg active:scale-95',
 

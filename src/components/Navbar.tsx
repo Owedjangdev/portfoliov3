@@ -7,7 +7,8 @@ import ReactCountryFlag from 'react-country-flag'
 import { navbarStyles as s } from '../styles/navbar.styles'
 import useScrolled from '../hooks/useScrolled'
 import useLangDropdown from '../hooks/seLangDropdown'
-import logo from '../assets/images/logoowedev.jpg'
+import logoLight from '../assets/images/logo-light.png'
+import logoDark from '../assets/images/logo-dark.png'
 
 const languages = [
   { code: 'fr', country: 'FR', label: 'Français' },
@@ -44,7 +45,8 @@ const Navbar = () => {
     <header className={s.header(scrolled || isOpen)}>
       <div className={s.container}>
         <Link to="/" className="flex items-center" onClick={() => setIsOpen(false)} aria-label="OweDev Digitaly - accueil">
-          <img src={logo} alt="OweDev Digitaly" className="h-9 w-auto rounded-md md:h-10" />
+          <img src={logoLight} alt="OweDev Digitaly" className="h-8 w-auto md:h-9 block dark:hidden" />
+          <img src={logoDark} alt="OweDev Digitaly" className="h-8 w-auto md:h-9 hidden dark:block" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">

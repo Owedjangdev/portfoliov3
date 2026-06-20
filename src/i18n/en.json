@@ -229,12 +229,12 @@
       "location_desc": "Based in Benin. Open to international opportunities."
     },
     "placeholders": {
-      "name": "e.g. John Doe",
-      "email": "john@example.com",
-      "phone": "+229 XX XX XX XX",
+      "name": "Your name",
+      "email": "Your email",
+      "phone": "Your phone",
       "project": "Select an option",
       "budget": "Select a range",
-      "message": "Describe your project, goals, questions..."
+      "message": "Your message"
     },
     "options": {
       "web": "Web Development",
@@ -307,12 +307,12 @@
       "project": "Project",
       "rating": "Your Rating",
       "content": "Your Review",
-      "placeholder_name": "e.g. John Doe",
-      "placeholder_email": "john@example.com",
-      "placeholder_company": "Company name",
-      "placeholder_role": "e.g. CEO, CTO, Product Manager",
-      "placeholder_project": "Project name",
-      "placeholder_content": "Share your experience... (min. 20 characters)",
+      "placeholder_name": "Your name",
+      "placeholder_email": "Your email",
+      "placeholder_company": "Your company",
+      "placeholder_role": "Your role",
+      "placeholder_project": "The project",
+      "placeholder_content": "Your review",
       "submit": "Send my review",
       "helper_email": "Will not be published",
       "helper_disclaimer": "Your review will be validated before publishing.",

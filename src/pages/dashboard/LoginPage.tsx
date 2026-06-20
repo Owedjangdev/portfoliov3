@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { HiLockClosed, HiMail, HiArrowRight } from 'react-icons/hi'
 import { useAuth } from '../../context/auth'
-import logo from '../../assets/images/logoowedev.jpg'
+import logoLight from '../../assets/images/logo-light.png'
+import logoDark from '../../assets/images/logo-dark.png'
 
 const LoginPage = () => {
   const { signIn, user, loading } = useAuth()
@@ -49,7 +50,8 @@ const LoginPage = () => {
       <section className="relative w-full max-w-md rounded-2xl border border-slate-200 bg-white/80 p-8 shadow-2xl shadow-slate-300/40 backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.04] dark:shadow-black/40">
         {/* Marque */}
         <div className="mb-8 flex flex-col items-center text-center">
-          <img src={logo} alt="OweDev Digitaly" className="mb-5 h-14 w-auto rounded-xl bg-white p-1 shadow-lg shadow-slate-300/40 dark:shadow-black/30" />
+          <img src={logoLight} alt="OweDev Digitaly" className="mb-5 h-12 w-auto block dark:hidden" />
+          <img src={logoDark} alt="OweDev Digitaly" className="mb-5 h-12 w-auto hidden dark:block" />
           <p className="text-[11px] font-black uppercase tracking-[0.24em] text-blue-600 dark:text-blue-400">owedev admin</p>
           <h1 className="mt-2 text-3xl font-black text-slate-900 dark:text-white">Connexion</h1>
           <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">Accès réservé à l'administration du portfolio.</p>
