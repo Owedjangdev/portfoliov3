@@ -83,7 +83,7 @@ const Realisations = () => {
           <div className={s.header}>
             <span className={s.label}>{t('works.label')}</span>
             <h2 className={s.title}>
-              {t('works.title')}
+              {t('works.title')}{' '}
               <span className={s.titleAccent}>{t('works.title_accent')}</span>
             </h2>
           </div>
@@ -104,7 +104,7 @@ const Realisations = () => {
         <div className={s.header}>
           <span className={s.label}>{t('works.label')}</span>
           <h2 className={s.title}>
-            {t('works.title')}
+            {t('works.title')}{' '}
             <span className={s.titleAccent}>{t('works.title_accent')}</span>
           </h2>
         </div>

@@ -46,7 +46,7 @@ const Testimonials = () => {
           <div className={s.headerLeft}>
             <span className={s.label}>{t('testimonials.label')}</span>
             <h2 className={s.title}>
-              {t('testimonials.title')}
+              {t('testimonials.title')}{' '}
               <span className={s.titleAccent}>{t('testimonials.title_accent')}</span>
             </h2>
           </div>

@@ -48,7 +48,7 @@ const TestimonialsPage: React.FC = () => {
         <header className={s.header}>
           <span className={s.label}>{t('testimonials_page.label')}</span>
           <h1 className={s.title}>
-            {t('testimonials_page.title')}
+            {t('testimonials_page.title')}{' '}
             <span className={s.titleAccent}>{t('testimonials_page.title_accent')}</span>
           </h1>
           <p className={s.subtitle}>{t('testimonials_page.subtitle')}</p>
@@ -77,7 +77,7 @@ const TestimonialsPage: React.FC = () => {
         <div className={s.listHeader}>
           <span className={s.listLabel}>Ils m'ont fait confiance</span>
           <h2 className={s.listTitle}>
-            {t('testimonials_page.list_title')}
+            {t('testimonials_page.list_title')}{' '}
             <span className={s.listTitleAccent}>{t('testimonials_page.list_title_accent')}</span>
           </h2>
         </div>
@@ -112,7 +112,7 @@ const TestimonialsPage: React.FC = () => {
           <div className="mb-12">
             <span className={s.listLabel}>Laisser un avis</span>
             <h2 className={s.listTitle} style={{ marginTop: '1rem' }}>
-              {t('testimonials_page.form_title')}
+              {t('testimonials_page.form_title')}{' '}
               <span className={s.listTitleAccent}>{t('testimonials_page.form_title_accent')}</span>
             </h2>
           </div>

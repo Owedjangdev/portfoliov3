@@ -6,7 +6,7 @@ export const testimonialStyles = {
   headerLeft: 'flex flex-col items-center md:items-start gap-4',
   label: 'bg-blue-50 dark:bg-blue-500/10 text-blue-600 px-4 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-[0.2em] inline-block w-fit border border-blue-100 dark:border-blue-500/20',
   title: 'text-3xl sm:text-4xl md:text-5xl font-black font-[Clash_Display] text-gray-900 dark:text-white leading-tight',
-  titleAccent: 'font-[Clash_Display] bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent ml-2',
+  titleAccent: 'font-[Clash_Display] bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent',
   ctaBtn: 'group flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-bold text-sm transition-all shadow-lg active:scale-95',
 
   // Grille et Cartes

@@ -60,7 +60,7 @@ const FAQ = () => {
         <div className={s.header}>
           <span className={s.label}>{t('faq.label')}</span>
           <h2 className={s.title}>
-            {t('faq.title')}
+            {t('faq.title')}{' '}
             <span className={s.titleAccent}>{t('faq.title_accent')}</span>
           </h2>
         </div>

@@ -103,7 +103,7 @@ const Skills = () => {
         <div className={s.header}>
           <span className={s.label}>{t('skills.label')}</span>
           <h2 className={s.title}>
-            {t('skills.title')}
+            {t('skills.title')}{' '}
             <span className={s.titleAccent}>{t('skills.title_accent')}</span>
           </h2>
         </div>
